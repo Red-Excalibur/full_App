@@ -19,6 +19,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.anime_fun_facts.feature_anime.domain.model.animes_model.Animes_Data
+import com.anime_fun_facts.feature_anime.presentation.anime_list_Screen.components.MyCard
 import com.anime_fun_facts.feature_anime.presentation.navigation.Routes
 
 @Composable
@@ -48,40 +49,4 @@ fun AnimesScreen  (
 }
 
 
-@Composable
-fun MyCard(
-    animes :Animes_Data,
-    navigate :()->Unit
-    ){
-
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
-            .clickable {
-                navigate()
-            }
-    ) {
-        Image(painter = rememberAsyncImagePainter(animes.anime_img),
-            contentDescription =null,
-            modifier = Modifier.size(150.dp)
-        )
-        Column(
-            verticalArrangement = Arrangement.SpaceEvenly
-        ) {
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(text = " the anime name id : ${animes.anime_id}")
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(text = " the anime name is :")
-            Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                text = " ${animes.anime_name}",
-                fontSize = 18.sp,
-                color = Color.Red,
-                modifier = Modifier.fillMaxWidth()
-
-            )
-        }
-    }
-}
 
