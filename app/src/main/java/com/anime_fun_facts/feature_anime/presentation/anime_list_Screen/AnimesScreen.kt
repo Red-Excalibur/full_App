@@ -2,6 +2,7 @@ package com.anime_fun_facts.feature_anime.presentation.anime_list_Screen
 
 import android.media.Image
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -15,12 +16,15 @@ import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.anime_fun_facts.feature_anime.domain.model.animes_model.Animes_Data
+import com.anime_fun_facts.feature_anime.presentation.navigation.Routes
 
 @Composable
 fun AnimesScreen  (
-    viewModel: AnimesViewModel= hiltViewModel()
+    viewModel: AnimesViewModel= hiltViewModel(),
+    navController: NavController
 ){
     val animes = viewModel.state.collectAsState()
 
@@ -33,7 +37,10 @@ fun AnimesScreen  (
         modifier = Modifier.fillMaxSize()
     ){
         items(animes.value){anime-> 
-            MyCard(animes = anime)
+            MyCard(animes = anime,
+                {navController?.navigate( "${Routes.Anime_Details_Screen.route}/${anime.anime_name}")}
+            )
+
             
         }
     }
@@ -42,12 +49,18 @@ fun AnimesScreen  (
 
 
 @Composable
-fun MyCard(animes :Animes_Data){
+fun MyCard(
+    animes :Animes_Data,
+    navigate :()->Unit
+    ){
 
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
+            .clickable {
+                navigate()
+            }
     ) {
         Image(painter = rememberAsyncImagePainter(animes.anime_img),
             contentDescription =null,

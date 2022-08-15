@@ -42,7 +42,7 @@ class GetAnimesUseCase @Inject constructor (
             job.join()
             if(response?.isSuccessful ?:return@runBlocking  &&(response?.body() != null)){
                 Log.d("alo :","Successful response from the use case")
-                MyCompanion.myList = response?.body()?.data!!
+                MyCompanion.myListAnimes = response?.body()?.data!!
                 Log.d("alo :","the list is set to the companion successfully in the Usecase")
 
             }

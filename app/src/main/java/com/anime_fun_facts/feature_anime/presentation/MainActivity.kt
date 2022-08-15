@@ -10,7 +10,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
 import com.anime_fun_facts.feature_anime.presentation.anime_list_Screen.AnimesScreen
+import com.anime_fun_facts.feature_anime.presentation.navigation.NavHostOfMe
 import com.anime_fun_facts.ui.theme.Anime_Fun_factsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,7 +27,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                 AnimesScreen()
+                 NavHostOfMe()
                 }
             }
         }

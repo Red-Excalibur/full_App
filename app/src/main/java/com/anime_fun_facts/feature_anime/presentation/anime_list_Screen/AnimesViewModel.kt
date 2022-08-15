@@ -37,7 +37,7 @@ private fun getAnimes() {
 
     //because we used the runBlocking we waited the first coroutine to end and the second too by blocking this
     //thread until we make sure we got the data before setting it below to the state
-    _state.value=MyCompanion.myList
+    _state.value=MyCompanion.myListAnimes
     Log.d("alo :","the list is set to the companion successfully in the ViewModel")
 
 
