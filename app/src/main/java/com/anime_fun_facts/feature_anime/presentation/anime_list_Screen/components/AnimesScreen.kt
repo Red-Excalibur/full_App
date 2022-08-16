@@ -1,10 +1,7 @@
 package com.anime_fun_facts.feature_anime.presentation.anime_list_Screen
 
 import android.media.Image
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyVerticalGrid
@@ -32,7 +29,7 @@ fun AnimesScreen  (
 //    navController: NavController
 ) {
 
-    val animes by remember { mutableStateOf(viewModel.state) }
+    val animes =  viewModel.state.collectAsState()
 
 
 
@@ -45,7 +42,7 @@ fun AnimesScreen  (
     ) {
         items(animes.value) { anime ->
             MyCard(
-                animess = anime,
+                animes = anime,
 //                {navController?.navigate( "${Routes.Anime_Details_Screen.route}/${anime.anime_name}")}
                 {}
             )
@@ -55,6 +52,16 @@ fun AnimesScreen  (
 
 
     }
+//   Column(
+//       modifier = Modifier
+//           .verticalScroll(rememberScrollState()))
+//            {
+//     for (i in animes.value) {
+//           MyCard(animes = i ,{})
+//       }
+//
+//   }
+
 }
 
 //@Preview
