@@ -1,5 +1,6 @@
 package com.anime_fun_facts.feature_anime.presentation
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,10 +17,12 @@ import com.anime_fun_facts.feature_anime.presentation.navigation.NavHostOfMe
 import com.anime_fun_facts.ui.theme.Anime_Fun_factsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
+//var contextt:Context ?=null
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        contextt=this
         setContent {
             Anime_Fun_factsTheme {
                 // A surface container using the 'background' color from the theme

@@ -1,6 +1,7 @@
 package com.anime_fun_facts.feature_anime.domain.use_cases
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LifecycleCoroutineScope
 import com.anime_fun_facts.feature_anime.domain.model.animes_model.Animes
 import com.anime_fun_facts.feature_anime.domain.model.animes_model.Animes_Data
@@ -24,10 +25,11 @@ class GetAnimesUseCase @Inject constructor (
               response = try {
                 repository.getAnimes()
             } catch (e: IOException){
-                Log.d("alo :","alo IOExeption")
+//               Toast.makeText(contextt , "Network Problem ",Toast.LENGTH_LONG).show()
                 return@launch
             }catch (e: HttpException){
-                Log.d("alo :","alo HTTPExeption")
+//                  Toast.makeText(contextt , "Network Problem ",Toast.LENGTH_LONG).show()
+//                log.d()
                 return@launch
             }
 
