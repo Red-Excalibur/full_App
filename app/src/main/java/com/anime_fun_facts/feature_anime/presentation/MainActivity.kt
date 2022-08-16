@@ -23,12 +23,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             Anime_Fun_factsTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                 NavHostOfMe()
-                }
+//                Surface(
+////                    modifier = Modifier.fillMaxSize(),
+////                    color = MaterialTheme.colors.background
+////                ) {
+////                 NavHostOfMe()
+////                }
+                AnimesScreen()
             }
         }
     }
